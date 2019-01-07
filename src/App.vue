@@ -1,23 +1,38 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <form
+    name="ask-question"
+    method="post"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    >
+    <input type="hidden" name="form-name" value="ask-question" />
+    <label v-for="(panelist, index) in panelists" :key="index">
+      <input
+        type="radio"
+        name="panelist"
+        :value="panelist"
+        @input="ev => updatePanelist"
+        :checked="panelist === currentPanelist"
+      />
+      <span>{{ panelist }}</span>
+    </label>
+    ...
+    <button>Submit</button>
+  </form>
 </template>
-
 <script>
 export default {
-  name: 'App'
+  name: "QAForm",
+  methods: {
+    updatePanelist (ev) {
+      this.currentPanelist = ev.target.value
+    }
+  },
+  data () {
+    return {
+      panelists: ['Evan You', 'Chris Fritz'],
+      currentPanelist: 'Evan You'
+    }
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
