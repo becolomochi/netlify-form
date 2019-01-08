@@ -12,7 +12,7 @@
   </p>
 </form>
 
-<form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/">
+<form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="#">
   <input type="hidden" name="form-name" value="contact">
   <p>
     <label>Your Name: <input type="text" name="name" /></label>   
