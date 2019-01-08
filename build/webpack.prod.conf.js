@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
 
 const env = require('../config/prod.env')
 
@@ -120,7 +121,16 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsRoot,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new PrerenderSPAPlugin(
+      // Absolute path to compiled SPA
+      path.resolve(__dirname, 'dist'),
+      // List of routes to prerender
+      [ '/'],
+      {
+        // options
+      }
+    )
   ]
 })
 
