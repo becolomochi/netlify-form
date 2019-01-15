@@ -16,7 +16,10 @@ export default new Router({
     {
       path: '/success',
       name: 'Success',
-      component: Success
+      component: Success,
+      beforeEnter: (to, from, next) => {
+        next('/')
+      }
     }
   ]
 })
