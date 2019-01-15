@@ -15,11 +15,12 @@ export default new Router({
     },
     {
       path: '/success',
-      name: 'Success',
-      component: Success,
-      beforeEnter: (to, from, next) => {
-        next('/')
-      }
+      name: 'Success'
+      // name: 'Success',
+      // component: Success,
+      // beforeEnter: (to, from, next) => {
+      //   next('/')
+      // }
     }
   ]
 })
