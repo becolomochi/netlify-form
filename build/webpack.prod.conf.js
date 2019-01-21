@@ -124,7 +124,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     ]),
     new PrerenderSPAPlugin(
       // Absolute path to compiled SPA
-      path.resolve(__dirname, 'dist'),
+      path.resolve(__dirname, '../dist'),
       // List of routes to prerender
       ['/', '/success']
     )
